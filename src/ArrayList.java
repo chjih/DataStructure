@@ -21,9 +21,6 @@ public class ArrayList<T> {
     public void add(T o){
         array[size++] = o;
         resize();
-        for(int i=0; i<size; i++){
-            System.out.println(array[i]);
-        }
     }
 
     //요소 추가(특정 인덱스 값에)
@@ -42,6 +39,7 @@ public class ArrayList<T> {
         for(int i=index; i<size-1; i++){
             array[i]=array[i+1];
         }
+        array[size-1]=null;
         size--;
     }
 
@@ -52,7 +50,6 @@ public class ArrayList<T> {
             if(o.equals(array[i])) break;
         }
         remove(i);
-        size--;
     }
 
     //포함 유무
@@ -86,7 +83,6 @@ public class ArrayList<T> {
     //외부에서 접근 불가능
     private void resize(){
         if(capacity==size){
-            System.out.println("늘립니다.");
             Object[] newArray = new Object[capacity*2];
             this.copy(newArray);
             capacity*=2;
@@ -123,23 +119,33 @@ public class ArrayList<T> {
         return size==0;
     }
 
-    public T[] clone(){
-        Object[] newArray = new Object[capacity];
+    public Object clone(){
+        ArrayList<T> newArray = new ArrayList<>();
         for(int i=0; i<size; i++){
-            newArray[i]=array[i];
+            newArray.add((T) array[i]);
         }
-        return (T[]) newArray;
+        return newArray;
     }
 
     public static void main(String[] args) {
         ArrayList<String> ar = new ArrayList<>();
-        System.out.println("첫번쩨");
-        ar.add("r");
-        System.out.println("두번쩨");
-        ar.add("r");
-        System.out.println("세번쩨");
-        ar.add("r");
-        System.out.println("네번쩨");
-        ar.add("r");
+        ar.add("가");
+        ar.add("나");
+        ar.add("다");
+        ar.add("라");
+        ar.add("마");
+        ar.remove(2);
+        ar.remove("마");
+        for(int i=0; i<ar.size(); i++){
+            System.out.println(ar.get(i));
+        }
+        ArrayList<String> nar = (ArrayList<String>) ar.clone();
+        for(int i=0; i<ar.size(); i++){
+            System.out.println(nar.get(i));
+        }
+        nar.clear();
+        for(int i=0; i<nar.size(); i++){
+            System.out.println(nar.get(i));
+        }
     }
 }
