@@ -35,7 +35,7 @@ public class ArrayStack<T> {
         topIndex = 0;
     }
 
-    public boolean isEmpty(){
+    public boolean empty(){
         if(topIndex==0) return true;
         return false;
     }
