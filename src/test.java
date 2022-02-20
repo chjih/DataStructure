@@ -3,12 +3,11 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.TreeSet;
+
 
 public class test {
     public static void main(String[] args) {
-        Queue ar = new LinkedList<>();
-        ar.offer("a");
-        System.out.println(ar.poll());
-        System.out.println(ar.poll());
+
     }
 }
