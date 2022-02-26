@@ -9,9 +9,12 @@ import java.util.TreeSet;
 
 public class test {
     public static void main(String[] args) {
-        List<String> arr = Arrays.asList("가","나");
-
-        System.out.println(arr.get(1));
-
+        ArrayList<Integer> ar = new ArrayList<>();
+        ar.add(3);
+        ar.add(2);
+        ar.add(4);
+        ar.add(5);
+        ar.remove(2);
+        System.out.println(ar.get(2));
     }
 }
